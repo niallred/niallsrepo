@@ -1,0 +1,662 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Multi-page template</title>
+	
+	
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> 
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+
+<body>
+
+<!-- Start- Home page/first page: #one -->
+<div data-role="page" id="one">
+	<div data-role="header">
+		<h1>Niall's Pizza</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<h2>Welcome to Symfony Pizza !!</h2>
+
+		<br>
+        Welcome to the application, 
+		<br>
+		Please Register Below.
+		<br>
+		Or login if existing customer
+		<br>
+
+		<h3> Register or Login :</h3>
+		<p><a href="#register" class="ui-btn ui-shadow ui-corner-all">Register</a></p>
+		<p><a href="#login" class="ui-btn ui-shadow ui-corner-all">Login</a></p>
+
+	</div>
+
+	
+	
+</div><!--- end of page one -->
+
+
+<!-- Register Page -->
+<div data-role="page" id="register" data-theme="a">
+	<div data-role="header">
+		<h1>Register</h1>
+      </div><!-- /header -->
+
+     <div role="main" class="ui-content">
+		<h2>Register</h2>
+       Username <input type="text" name="username" id="username" value="">
+       Password <input type="text" name="pass" id="pass" value="">
+       AccType <input type="text" name="acctype" id="acctype" value="">
+       <button class="ui-btn" id="registerButton">Submit</button>
+	</div>
+</div>
+
+<!--End of Register page-->
+
+
+<!-- Login Page -->
+<div data-role="page" id="login" data-theme="a">
+	<div data-role="header">
+		<h1>Login page</h1>
+	</div><!-- /header -->
+
+     <div role="main" class="ui-content">
+		<h2>Login</h2>
+	   Username <input type="text" name="login_username" id="login_username" value="">
+       Password <input type="text" name="login_pass" id="login_pass" value="">
+        <button class="ui-btn" id="loginButton">Submit</button>      
+      	</div><!-- /content -->
+</div>
+
+<!--End of login page-->
+
+
+
+
+
+<!-- Customer Page -->
+<div data-role="page" id="customer" data-theme="a">
+      <div data-role="header">
+		<h1>Customer</h1>
+      </div><!-- /header -->
+	  
+	  <div role="main" class="ui-content">
+	  
+	  
+	</div>
+
+
+<script
+  src="http://code.jquery.com/jquery-3.3.1.js"	
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>  
+  
+<script>
+
+
+// template for a product
+
+class product {
+  constructor(name, price, qty) {
+    this.name = name
+    this.price = price;
+    this.qty = qty;
+  }
+}
+
+
+// define our products
+
+		hawaiian = new product("hawaiian", 11.00, 0);
+		newyorker = new product("newyorker", 11.00, 0);
+		housespecial = new product("housespecial", 11.00, 0);
+		sixinch = new product ("6 inch", 5.00, 0);
+		nineinch = new product ("9 inch", 10.00, 0);
+		twelveinch = new product ("12 inch", 11.00, 0);
+		
+		ham = new product ("han", 1.00, 0);
+		chicken = new product("chicken" , 1.00, 0);
+		pepperoni = new product("pepperoni" , 1.00, 0);
+		sweetcorn = new product("sweetcorn" , 1.00, 0);
+		tomato = new product("tomato" , 1.00, 0);
+		peppers = new product("peppers" , 1.00, 0);
+		
+		coke = new product("coke" , 1.00, 0);
+		fanta = new product("fanta" , 1.00, 0);
+		sprite = new product("sprite" , 1.00, 0);
+		
+		potatoeWedges = new product("potatoeWedges" , 5.00, 0);
+		garlicBread = new product("garlicBread" , 5.00, 0);
+
+
+
+var prod = []; // array
+
+		prod.push(hawaiian);
+		prod.push(newyorker);
+		prod.push(housespecial);
+		prod.push(sixinch);
+		prod.push(nineinch);
+		prod.push(twelveinch);
+		prod.push(ham);
+		prod.push(chicken);
+		prod.push(pepperoni);
+		prod.push(sweetcorn);
+		prod.push(tomato);
+		prod.push(peppers);
+		prod.push(coke);
+		prod.push(fanta);
+		prod.push(sprite);
+		prod.push(potatoeWedges);
+		prod.push(garlicBread);
+
+
+
+</script>
+
+Add Hawiian pizza.. <button id="addProduct1" productname="hawaiian">Add </button> 
+                    <button id="removeProduct1">Remove</button>
+                    <input type="text" id="hawaiianQty"/> 
+					
+Add New Yorker pizza.. 	<button id="addProduct2" productname="newyorker">Add </button> 
+						<button id="removeProduct2">Remove</button>
+						<input type="text" id="newyorkerQty"/> 
+					
+Add House Special pizza.. <button id="addProduct3" productname="housespecial">Add </button> 
+                    <button id="removeProduct3">Remove</button>
+                    <input type="text" id="housespecialQty"/> 	
+
+Pizza Size.. 		<button id="addProduct4" productname="sixinch">Add 6"</button> 
+                    <button id="removeProduct4">Remove</button>
+                    <input type="text" id="sixinchQty"/> 	
+
+Pizza Size.. 		<button id="addProduct5" productname="nineinch">Add 9" </button> 
+                    <button id="removeProduct5">Remove</button>
+                    <input type="text" id="nineinchQty"/> 
+
+Pizza Size.. 		<button id="addProduct6" productname="twelveinch">Add 12" </button> 
+                    <button id="removeProduct6">Remove</button>
+                    <input type="text" id="twelveinchQty"/> 
+
+Toppings.. 			<button id="addProduct7" productname="ham">Add Ham </button> 
+                    <button id="removeProduct7">Remove</button>
+                    <input type="text" id="hamQty"/> 
+
+Toppings.. 			<button id="addProduct8" productname="chicken">Add Chicken </button> 
+                    <button id="removeProduct8">Remove</button>
+                    <input type="text" id="chickenQty"/> 
+
+Toppings.. 			<button id="addProduct9" productname="pepperoni">Add Pepperoni </button> 
+                    <button id="removeProduct9">Remove</button>
+                    <input type="text" id="pepperoniQty"/> 
+
+Toppings.. 			<button id="addProduct10" productname="sweetcorn">Add Sweetcorn </button> 
+                    <button id="removeProduct10">Remove</button>
+                    <input type="text" id="sweetcornQty"/> 
+
+Toppings. 			<button id="addProduct11" productname="tomato">Add Tomato </button> 
+                    <button id="removeProduct11">Remove</button>
+                    <input type="text" id="tomatoQty"/> 	
+
+Toppings. 			<button id="addProduct12" productname="peppers">Add Peppers </button> 
+                    <button id="removeProduct12">Remove</button>
+                    <input type="text" id="peppersQty"/> 		
+
+Drinks. 			<button id="addProduct13" productname="coke">Add Coke </button> 
+                    <button id="removeProduct13">Remove</button>
+                    <input type="text" id="cokeQty"/> 		
+
+Drinks. 			<button id="addProduct14" productname="fanta">Add Fanta </button> 
+                    <button id="removeProduct14">Remove</button>
+                    <input type="text" id="fantaQty"/> 							
+					
+					
+Drinks. 			<button id="addProduct15" productname="sprite">Add Sprite </button> 
+                    <button id="removeProduct15">Remove</button>
+					<input type="text" id="spriteQty"/> 		
+
+Add some potatoeWedges.. <button id="addProduct16" productname="potatoeWedges">Add </button> 
+						<button id="removeProduct16">Remove</button>
+						<input type="text" id="potatoeWedgesQty"/> 
+
+
+Add some garlicBread.. 	<button id="addProduct17" productname="garlicBread">Add </button> 
+						<button id="removeProduct17">Remove</button>
+						<input type="text" id="garlicBreadQty"/>    
+
+                                       
+                   
+                    
+                    <button id="viewCart()"/>View Cart</button>
+					<button onclick="checkout()"/>Checkout</button>
+
+<div id="myCart"></div>  
+
+
+          
+<script>
+
+    
+$('[id^=addProduct').click(function(){
+
+    var p = $(this).attr('productname'); // find out what was clicked
+    
+    var arrayLength = prod.length;
+	
+    for (var i = 0; i < arrayLength; i++) { // loop over the products
+        
+        var pro = prod[i] // get one product at a time
+		
+        console.log(pro.name);
+        
+        if(p == pro.name) { // check if the product we are looking for is the one we have.
+        
+            console.log(pro.qty);
+            
+            pro.qty = pro.qty + 1; // add one onto the qty
+            
+              $( "#"+pro.name+"Qty" ).val(pro.qty); // if we looking for cookies, pro.name+Qty becomes, cookiesQty
+			  
+			  //updateCart();
+
+        }
+              
+                   
+    }
+        
+});
+</script>
+
+<script>
+$('[id^=removeProduct').click(function(){
+
+		
+	var p = $(this).attr('productname'); //find out if choosen/clicked
+	
+	var arrayLength = prod.length;
+	        
+    for (var i = 0; i < arrayLength; i++) { // loop over the products
+	
+		var pro = prod[i];
+		
+		 console.log(pro.name);
+		
+		 if(p == pro.name) {
+		 
+		 console.log(pro.qty);
+		 		 
+			if (pro.qty > 0) {
+		
+				pro.qty = pro.qty - 1;
+				
+						
+				$( "#"+pro.name+"Qty" ).val(pro.qty);	
+				
+				//updateCart();
+			}
+		}
+	}
+});
+
+
+
+
+function checkout(){
+
+    var ser = '';
+
+    var arrayLength = prod.length;
+     
+        for (var i = 0; i < arrayLength; i++) { // loop over the products
+            
+            var pro = prod[i] // get one product at a time
+            console.log(pro.name);
+            console.log(pro.qty);
+            
+            ser = ser + pro.name + '-' + pro.qty + '=';
+      
+          }
+
+             
+    // jQuery post and send the ser.
+
+    $.post( "/catchTheCart", { placedby: "John", ser: ser })
+      .done(function( data ) {
+        alert( "Data Loaded: " + data );
+      });
+
+
+console.log(ser);
+}
+
+
+
+</script>
+
+					
+
+<!--	 <script> 
+	 
+	 //template for products
+	 
+	  class product {
+		constructor(name, price, qty) {
+		this.name = name;
+		this.price = price;
+		this.qty = qty;
+		}
+	}
+
+		// define our products
+		hawaiian = new product("hawaiian", 11.00, 0);
+		newyorker = new product("newyorker", 11.00, 0);
+		housespecial = new product("housespecial", 11.00, 0);
+		sixinch = new product ("6 inch", 5.00, 0);
+		nineinch = new product ("9 inch", 10.00, 0);
+		twelveinch = new product ("12 inch", 11.00, 0);
+		ham = new product ("han", 1.00, 0);
+		chicken = new product("chicken" , 1.00, 0);
+		pepperoni = new product("pepperoni" , 1.00, 0);
+		sweetcorn = new product("sweetcorn" , 1.00, 0);
+		tomato = new product("tomato" , 1.00, 0);
+		peppers = new product("peppers" , 1.00, 0);
+		coke =new product("coke" , 1.00, 0);
+		fanta =new product("fanta" , 1.00, 0);
+		sprite =new product("sprite" , 1.00, 0);
+		potatoeWedges =new product("potatoeWedges" , 5.00, 0);
+		garlicBread =new product("garlicBread" , 5.00, 0);
+		
+		
+		
+		
+		var products = []
+		
+		products.push(hawaiian);
+		products.push(newyorker);
+		products.push(housespecial);
+		products.push(sixinch);
+		products.push(nineinch);
+		products.push(twelveinch);
+		products.push(ham);
+		products.push(chicken);
+		products.push(pepperoni);
+		products.push(sweetcorn);
+		products.push(tomato);
+		products.push(peppers);
+		products.push(coke);
+		products.push(fanta);
+		products.push(sprite);
+		products.push(potatoeWedges);
+		products.push(garlicBread);
+		
+		// console.log(products);
+		
+	</script> 
+
+	<!--
+
+	  
+  <div data-role="collapsible" data-collapsed="false">
+    <h4>Pizza Type</h4>
+    
+ <fieldset data-role="controlgroup">
+        <legend><h4>Pizza Type:</h4></legend>
+        <input type="checkbox" productname="hawaiian" value="hawaiian" id="product1">
+        <label for="product1">Hawaiian</label>
+        <input type="checkbox" productname="newyorker" value = "newyorker" id="product2">
+        <label for="product2">New Yorker</label>
+        <input type="checkbox" productname="housespecial" id="product3">
+        <label for="product3">House Special</label>
+    </fieldset>
+</div>
+	  
+	  <div data-role="collapsible" data-collapsed="false">
+    <h4>Pizza Size</h4>
+    
+ <fieldset data-role="controlgroup">
+        <legend><h4>Pizza Size:</h4></legend>
+        <input type="checkbox" productname="sixinch" id="product4">
+        <label for="product4">6" €5.00</label>
+        <input type="checkbox" productname="nineinch" id="product5">
+        <label for="product5">9" €10.00</label>
+        <input type="checkbox" productname="twelveinch" id="product6">
+        <label for="product6">12" €11.00</label>
+    </fieldset>
+</div>
+
+ 
+
+ <div data-role="collapsible" data-collapsed="false">
+    <h4>Toppings</h4>
+
+ <fieldset data-role="controlgroup">
+        <legend><h4>Toppings €1.00:</h4></legend>
+        <input type="checkbox" productname="ham" id="product7">
+        <label for="product7">ham</label>
+        <input type="checkbox" productname="chicken" id="product8">
+        <label for="product8">chicken</label>
+        <input type="checkbox" productname="pepperoni" id="product9">
+        <label for="product9">pepperoni</label>
+		<input type="checkbox" productname="sweetcorn" id="product10">
+        <label for="product10">sweetcorn</label>
+		<input type="checkbox" productname="tomato" id="product11">
+        <label for="product11">tomato</label>
+	 	<input type="checkbox" productname="peppers" id="product12">
+        <label for="product12">peppers</label>
+
+    </fieldset>
+</div>
+	
+	 <div data-role="collapsible" data-collapsed="false">
+    <h4>Drinks</h4>
+    
+ <fieldset data-role="controlgroup">
+        <legend><h4>Drinks €1.00 :</h4></legend>
+        <input type="checkbox" productname="coke" id="product13">
+        <label for="product13">Coke</label>
+        <input type="checkbox" productname="fanta" id="product14">
+        <label for="product14">Fanta</label>
+        <input type="checkbox" productname="sprite" id="product15">
+        <label for="product15">Sprite</label>
+    </fieldset>
+</div>
+	
+	 <div data-role="collapsible" data-collapsed="false">
+    <h4>Sides</h4>
+    
+ <fieldset data-role="controlgroup">
+        <legend><h4>Sides €5:00:</h4></legend>
+        <input type="checkbox" productname="potatoeWedges" id="product16">
+        <label for="product16">Potatoe Wedges</label>
+        <input type="checkbox" productname="garlicBread" id="product17">
+        <label for="product17">Garlic Bread</label>
+        
+    </fieldset>
+</div>
+	<button class="ui-btn" id="addButton">Add</button>
+	-->
+	
+	<!--<script>
+
+var items = [];
+
+$( "#addButton" ).click(function() {
+
+     $('[id^=product]').each(function () {
+          var currentP = $(this).val(); // getting name
+            var checked = console.log( $(this).is(':checked')); // seeing if checked
+			 if(checked){
+			 
+		      
+			   
+			   items.push(currentP); // pushing
+
+				
+			
+			 }
+      
+   });
+
+   
+   
+   // send it over to the database.
+ //  jquery post
+
+	// $.post( "/backend", { type: "add",})
+    //.done(function( data ) {
+    //    alert( "Data Loaded: " + data ); 
+    //  });
+ 
+});
+</script> -->
+
+
+	</div><!-- /content -->
+	
+</div>
+
+<!-- Mananger Page-->
+
+<div data-role="page" id="manager" data-theme="a">
+     <div data-role="header">
+		<h1>Manager</h1>
+      </div><!-- /header -->
+
+      <div role="main" class="ui-content">
+		</div><!-- /content -->
+</div>
+
+<!-- End of Mananger Page-->
+
+
+<!-- Driver Page-->
+<div data-role="page" id="driver" data-theme="a">
+
+       <div data-role="header">
+		<h1>Driver</h1>
+      </div><!-- /header -->
+
+      <div role="main" class="ui-content">
+
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script> 
+  <div id="output">	  
+<script>
+
+			$.getJSON( "http://api.apixu.com/v1/current.json?key=41566e77049344ea89d212105190304&q=Dublin", function(data) {
+			
+				console.log(data);
+  
+				var location = data.location;
+				var city = location.name;
+				var country = location.country;
+					
+				var forecast = data.current;
+						
+				var temperature = forecast.temp_c;
+				var humidity = forecast.humidity;
+											
+				var content = '';
+				
+				content = content + '<b>Location:</b>' + city + ', ' + country + "<br><b>Temperature Deg C: = </b>: " + temperature + "<br><b>Humidity %: =  </b>:"+ humidity  ;
+								
+				$("#output").html(content);
+			});
+		
+  
+</script>
+
+	</div><!-- /content -->
+</div>
+
+<!-- end of driver page -->
+
+
+</body>
+
+
+
+<script> 
+
+$( "#loginButton" ).click(function() {
+  
+      var un = $( "#login_username" ).val();
+      console.log(un);
+      
+      var pw = $( "#login_pass" ).val();
+      console.log(pw);
+      
+
+      
+      
+      $.post( "/backend", { type: "login", username:un, password:pw})
+     .done(function( data ) {
+        alert( "Data Loaded: " + data );
+        
+        
+        if(data == 'customer'){
+            window.location="/index#customer";
+        }
+        else if(data == 'driver'){
+            window.location="/index#driver";
+        }        
+        
+		else if(data == 'manager'){
+            window.location="/index#manager";
+        }        
+       });
+     
+  //alert( "register button pressed!" );
+   
+});
+
+
+$( "#registerButton" ).click(function() {
+  
+      var un = $( "#username" ).val();
+      console.log(un);
+      
+      var pw = $( "#pass" ).val();
+      console.log(pw);
+      
+      var at = $( "#acctype" ).val();
+      console.log(at);
+      
+            
+      $.post( "/backend", { type: "register", username:un, password:pw, acctype:at})
+     .done(function( data ) {
+        alert( "Data Loaded: " + data );
+		
+		if(data == 'customer'){
+            window.location="/index#customer";
+        }
+        else if(data == 'driver'){
+            window.location="/driver";
+        }       
+		else if(data == 'manager'){
+            window.location="/index#manager";
+        }  	
+			
+       });
+  
+    //alert( "register button pressed!" );
+  
+  
+});
+
+
+</script>
+
+
+
+</html>
